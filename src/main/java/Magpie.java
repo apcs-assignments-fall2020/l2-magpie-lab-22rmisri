@@ -144,9 +144,10 @@ public class Magpie
      */
     public String transformIWantStatement(String statement)
     {
-        //your code here
-        return "";
-    }
+        String[] words = statement.split("\\s+");
+        String new_string = "Would you really be happy if you had " + words[2] + "?";
+        return new_string;
+        }
 
     /**
      * Take a statement with "I <something> you" and transform it into 
@@ -156,8 +157,9 @@ public class Magpie
      */
     public String transformIYouStatement(String statement)
     {
-        //your code here
-        return "";
+        String [] words = statement.split("\\s+");
+        String new_string = "Why do you " + words[1] + " me?";
+        return new_string;
     }
 
     /**
@@ -168,8 +170,13 @@ public class Magpie
      */
     public String transformIWantToStatement(String statement)
     {
-        // your code here
-        return "";
+        String new_string = "";
+        for (int i = 10; i < (statement.length()); i++) {
+            char index = statement.charAt(i);
+            new_string += index;
+        }
+        String want = "What would it mean to " + new_string + "?";
+        return want;
     }
 
 
@@ -183,7 +190,15 @@ public class Magpie
      */
     public String transformYouMeStatement(String statement)
     {
-        // your code here
-        return "";
+        int you = statement.indexOf("you");
+        int start = you + 4;
+        int end = statement.length() - 3;
+        String new_string = "";
+        for (int i = start; i < end; i++) {
+            char index = statement.charAt(i);
+            new_string += index;
+        }
+        String want = "What makes you think that I " + new_string + " you?";
+        return want;
     }
 }
